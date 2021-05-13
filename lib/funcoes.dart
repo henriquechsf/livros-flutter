@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Funcoes {
+  static const LISTA_LIVRO = 1;
+
   static Widget _criarIconeEspacado(IconData icone, Color cor, double tamanho) {
     return Padding(
       padding: EdgeInsets.all(4),

@@ -30,7 +30,6 @@ class Botao {
 
   static Widget criarBotaoFlutuante(IconData icone, Function evento) {
     return FloatingActionButton(
-      backgroundColor: Colors.green[900],
       child: Funcoes.criarIcone(icone),
       onPressed: evento,
     );

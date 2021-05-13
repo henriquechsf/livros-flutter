@@ -22,7 +22,7 @@ class LivroHelper {
         where: "codigo = ?", whereArgs: [codigo]);
   }
 
-  Future<List> getTodos(int codigo) async {
+  Future<List> getTodos() async {
     Database db = await BancoDados().db;
 
     // List listMap = await db.query(Livro.nomeTabela);
