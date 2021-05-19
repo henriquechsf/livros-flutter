@@ -11,7 +11,7 @@ class Botao {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Funcoes.criarIcone(icone),
+            Funcoes.criarIcone(icone, cor: Colors.white, tamanho: 25),
             Text(texto, style: TextStyle(color: Colors.white, fontSize: 25),),
           ],
         ),

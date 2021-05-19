@@ -1,3 +1,4 @@
+import 'package:aulabancodados/db/livro.dart';
 import 'package:aulabancodados/db/livro_helper.dart';
 import 'package:aulabancodados/funcoes.dart';
 import 'package:aulabancodados/ui/cadastro_page.dart';
@@ -25,7 +26,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: BarraTitulo.criar("Meus Livros"),
       floatingActionButton: Botao.criarBotaoFlutuante(Icons.add, () {
-        _cliqueItem();
+        _cliqueItem(null);
       }),
       body: FutureBuilder(
         future: _getLista(),
@@ -50,11 +51,11 @@ class _HomePageState extends State<HomePage> {
     return Container(
       // cor em hexadecimal
       color: Color(0xFFEEEEEE),
-      child: ListaDados.criar(context, snapshot, Funcoes.LISTA_LIVRO),
+      child: ListaDados.criar(context, snapshot, Funcoes.LISTA_LIVRO, _cliqueItem),
     );
   }
 
-  void _cliqueItem() {
+  void _cliqueItem(Livro livro) {
     Navigator.push(context, MaterialPageRoute(builder: (context) => CadastroPage()));
   }
 
