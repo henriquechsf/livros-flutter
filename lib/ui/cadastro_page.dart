@@ -9,6 +9,12 @@ import 'package:aulabancodados/widgets/campo_texto.dart';
 import 'package:flutter/material.dart';
 
 class CadastroPage extends StatefulWidget {
+
+  final Livro _livro;
+
+  // construtor
+  CadastroPage(this._livro);
+
   @override
   _CadastroPageState createState() => _CadastroPageState();
 }
@@ -20,6 +26,18 @@ class _CadastroPageState extends State<CadastroPage> {
   final nomeController = TextEditingController();
   final editoraController = TextEditingController();
   final anoController = TextEditingController();
+
+  // executado quando a tela é criada
+  // para acessar um atributo da classe principal é necessário "widget"
+  @override
+  void initState() {
+    super.initState();
+    if(widget._livro != null) {
+      nomeController.text = widget._livro.nome;
+      editoraController.text = widget._livro.editora;
+      anoController.text = widget._livro.ano.toString();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
