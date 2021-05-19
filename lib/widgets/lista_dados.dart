@@ -1,3 +1,6 @@
+import 'package:aulabancodados/db/livro.dart';
+import 'package:aulabancodados/funcoes.dart';
+import 'package:aulabancodados/widgets/lista_dados_livro.dart';
 import 'package:flutter/material.dart';
 
 class ListaDados {
@@ -7,15 +10,15 @@ class ListaDados {
       scrollDirection: Axis.vertical,
       itemCount: snapshot.data.length,
       itemBuilder: (context, index) {
-        return _retornaLista(tipo, snapshot.data[index], itemClique);
+        return _retornaLista(context, tipo, snapshot.data[index], itemClique);
       },
     );
   }
 
-  static Widget _retornaLista(int tipo, Map dados, Function itemClique) {
+  static Widget _retornaLista(BuildContext context, int tipo, Livro dados, Function itemClique) {
     switch (tipo) {
-      //case Funcoes.LISTA_EMISSORA:
-      //  return ListaDadosEmissora.criarItem(dados);
+      case Funcoes.LISTA_LIVRO:
+       return ListaDadosLivro.criar(context, dados, itemClique);
       default:
         return Container();
     }
