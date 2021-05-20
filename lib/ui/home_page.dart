@@ -6,6 +6,7 @@ import 'package:aulabancodados/widgets/barra_titulo.dart';
 import 'package:aulabancodados/widgets/botao.dart';
 import 'package:aulabancodados/widgets/circulo_aguarde.dart';
 import 'package:aulabancodados/widgets/erro_listagem.dart';
+import 'package:aulabancodados/widgets/imagem.dart';
 import 'package:aulabancodados/widgets/lista_dados.dart';
 import 'package:flutter/material.dart';
 
@@ -51,7 +52,12 @@ class _HomePageState extends State<HomePage> {
     return Container(
       // cor em hexadecimal
       color: Color(0xFFEEEEEE),
-      child: ListaDados.criar(context, snapshot, Funcoes.LISTA_LIVRO, _cliqueItem),
+      child: Column(
+        children: [
+          Imagem.criar("imagens/book.png"),
+          Expanded(child: ListaDados.criar(context, snapshot, Funcoes.LISTA_LIVRO, _cliqueItem),)
+        ],
+      )
     );
   }
 

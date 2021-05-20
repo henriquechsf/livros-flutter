@@ -34,8 +34,8 @@ class _CadastroPageState extends State<CadastroPage> {
     super.initState();
     if(widget._livro != null) {
       nomeController.text = widget._livro.nome;
-      editoraController.text = widget._livro.editora;
-      anoController.text = widget._livro.ano.toString();
+      editoraController.text = widget._livro.editora ?? "";
+      anoController.text = widget._livro.ano != null ? widget._livro.ano.toString() : "";
     }
   }
 

@@ -18,7 +18,7 @@ class ListaDadosLivro {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(livro.editora),
-                  Text(livro.ano.toString()),
+                  Text(livro.ano != null ? livro.ano.toString() : ""),
                 ],
               )
             ],
