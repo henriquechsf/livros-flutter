@@ -48,7 +48,8 @@ class _CadastroPageState extends State<CadastroPage> {
           CampoTexto.criar("Nome", "", nomeController, TextInputType.text),
           CampoTexto.criar("Editora", "", editoraController, TextInputType.text),
           CampoTexto.criar("Ano", "", anoController, TextInputType.number),
-          Botao.criar("Salvar", _salvarLivro, cor: Colors.blue, icone: Icons.save)
+          Botao.criar("Salvar", _salvarLivro, cor: Colors.green, icone: Icons.save),
+          _criarBotaoExcluir(),
         ],
       ),
     );
@@ -82,8 +83,21 @@ class _CadastroPageState extends State<CadastroPage> {
       livroHelper.alterar(livro);
     }
 
-
     // fecha a tela
+    Navigator.pop(context);
+  }
+
+  Widget _criarBotaoExcluir() {
+    if(widget._livro != null) {
+      return Botao.criar("Excluir", _excluirLivro, cor: Colors.red, icone: Icons.delete);
+    } else {
+      return Container();
+    }
+  }
+
+  void _excluirLivro() {
+    livroHelper.apagar(widget._livro.codigo);
+
     Navigator.pop(context);
   }
 }
