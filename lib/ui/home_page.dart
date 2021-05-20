@@ -55,8 +55,10 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void _cliqueItem(Livro livro) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => CadastroPage(livro)));
+  void _cliqueItem(Livro livro) async {
+    await Navigator.push(context, MaterialPageRoute(builder: (context) => CadastroPage(livro)));
+
+    setState(() {});
   }
 
 }
