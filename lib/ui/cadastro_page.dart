@@ -68,13 +68,20 @@ class _CadastroPageState extends State<CadastroPage> {
       return;
     }
 
-    // instancia do livro e persistencia de dados
+    // instancia do livro
     var livro = Livro();
     livro.nome = nomeController.text;
     livro.editora = editoraController.text;
     livro.ano = int.parse(anoController.text);
 
-    livroHelper.inserir(livro);
+    // salva ou edita
+    if(widget._livro == null) {
+      livroHelper.inserir(livro);
+    } else {
+      livro.codigo = widget._livro.codigo;
+      livroHelper.alterar(livro);
+    }
+
 
     // fecha a tela
     Navigator.pop(context);
