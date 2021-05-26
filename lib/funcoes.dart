@@ -35,4 +35,33 @@ class Funcoes {
   void _fecharTelaAtual(BuildContext context) {
     Navigator.pop(context);
   }
+
+  Future<bool> mostrarPergunta(BuildContext context, String titulo,
+      String texto, String txtSim, String txtNao, cliqueSim, cliqueNao) async {
+    return await showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(titulo),
+          content: Text(texto),
+          actions: <Widget>[
+            TextButton(
+              child: Text(txtSim),
+              onPressed: () {
+                cliqueSim();
+                Navigator.of(context).pop(true);
+              },
+            ),
+            TextButton(
+              child: Text(txtNao),
+              onPressed: () {
+                cliqueNao();
+                Navigator.of(context).pop(false);
+              },
+            ),
+          ],
+        );
+      }
+    );
+  }
 }

@@ -96,8 +96,12 @@ class _CadastroPageState extends State<CadastroPage> {
   }
 
   void _excluirLivro() {
-    livroHelper.apagar(widget._livro.codigo);
+    Funcoes().mostrarPergunta(context, "Atenção", "Deseja excluir este livro?",
+        "Sim", "Não", _confirmarExclusao, () {});
+  }
 
+  void _confirmarExclusao() {
+    livroHelper.apagar(widget._livro.codigo);
     Navigator.pop(context);
   }
 }
